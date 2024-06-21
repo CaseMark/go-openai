@@ -218,6 +218,8 @@ type ChatCompletionRequest struct {
 	ToolChoice any `json:"tool_choice,omitempty"`
 	// Options for streaming response. Only set this when you set stream: true.
 	StreamOptions *StreamOptions `json:"stream_options,omitempty"`
+	// Optional metadata for the completion.  Used by vLLM and LiteLLM for various features. 
+	ExtraBody	 any           `json:"extra_body,omitempty"`
 }
 
 type StreamOptions struct {
