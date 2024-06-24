@@ -220,6 +220,7 @@ type ChatCompletionRequest struct {
 	StreamOptions *StreamOptions `json:"stream_options,omitempty"`
 	// Optional metadata for the completion.  Used by vLLM and LiteLLM for various features. 
 	ExtraBody	 any           `json:"extra_body,omitempty"`
+	Metadata     any    	   `json:"metadata,omitempty"`
 }
 
 type StreamOptions struct {
