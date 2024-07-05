@@ -179,7 +179,9 @@ const (
 )
 
 type ChatCompletionResponseFormat struct {
-	Type ChatCompletionResponseFormatType `json:"type,omitempty"`
+	Type              ChatCompletionResponseFormatType `json:"type,omitempty"`
+	ResponseSchema    json.RawMessage                  `json:"response_schema,omitempty"`
+	EnforceValidation bool                             `json:"enforce_validation,omitempty"`
 }
 
 // ChatCompletionRequest represents a request structure for chat completion API.
@@ -218,9 +220,9 @@ type ChatCompletionRequest struct {
 	ToolChoice any `json:"tool_choice,omitempty"`
 	// Options for streaming response. Only set this when you set stream: true.
 	StreamOptions *StreamOptions `json:"stream_options,omitempty"`
-	// Optional metadata for the completion.  Used by vLLM and LiteLLM for various features. 
-	ExtraBody	 any           `json:"extra_body,omitempty"`
-	Metadata     any    	   `json:"metadata,omitempty"`
+	// Optional metadata for the completion.  Used by vLLM and LiteLLM for various features.
+	ExtraBody any `json:"extra_body,omitempty"`
+	Metadata  any `json:"metadata,omitempty"`
 }
 
 type StreamOptions struct {
